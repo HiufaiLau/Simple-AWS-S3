@@ -5,7 +5,8 @@ imageForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const file = imageInput.files[0];
   console.log(file);
-  // get secure url from our server
+
+  // get secure url from server
   const { url } = await fetch("/s3Url").then((res) => res.json());
   console.log("browser", url);
 
@@ -22,7 +23,6 @@ imageForm.addEventListener("submit", async (event) => {
   console.log("imgurl", imageUrl);
 
   // post requst to my server to store any extra data
-
   const img = document.createElement("img");
   img.src = imageUrl;
   document.body.appendChild(img);
